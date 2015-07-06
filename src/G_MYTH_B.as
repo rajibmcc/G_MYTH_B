@@ -10,11 +10,10 @@ package
 	import com.bbc_icontent.levels.LevelMonkey;
 	import com.bbc_icontent.levels.LevelSnake;
 	import com.bbc_icontent.levels.LevelTiger;
+	import com.bbc_icontent.levels.LevelVodor;
 	import com.bbc_icontent.screens.InfoCallCenter;
 	import com.bbc_icontent.screens.ScreenHome;
 	import com.bbc_icontent.screens.ScreenTheEnd;
-	import com.mcc.interactives.utils.AfterPlayClip;
-	import com.mcc.interactives.utils.DelayCall;
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -44,7 +43,7 @@ package
 			ScoreGame.initializeScore();
 			
 			_levels = new Vector.<Class>();
-			_levels.push(LevelSnake, LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
+			_levels.push(LevelVodor, LevelSnake, LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
 			_currentIdLevel = -1;
 			homeScreen = new ScreenHome();
 			addChild(homeScreen);

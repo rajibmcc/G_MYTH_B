@@ -7,7 +7,6 @@ package com.bbc_icontent.screens
 	import com.mcc.interactives.utils.DelayCall;
 	
 	import flash.display.Bitmap;
-	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.geom.ColorTransform;
@@ -67,6 +66,9 @@ package com.bbc_icontent.screens
 			
 			mainSkin = new FL_ScreenVodor();
 			addChild(mainSkin);
+			mainSkin.SpeechDeer01.mouseChildren=false;
+			mainSkin.SpeechDeer01.mouseEnabled=false;
+			
 			
 		
 			
@@ -207,8 +209,10 @@ package com.bbc_icontent.screens
 				trace("for "+ i);
 				
 				var target:Sprite = matchables[i] as Sprite;
-				trace("target: "+target+ target.name.substr(3) +"<>"+startClip.name.substr(3));
-				if (line!=null && target!=null && startClip!=null && target.name.substr(3) != startClip.name.substr(3) && target != startClip && target.hitTestPoint(mouseX,mouseY,true))
+				trace("target===: "+target+ target.name +"<>"+startClip.name );
+				
+					trace(line!=null );
+				if (line!=null && target!=null && startClip!=null && target.name.substr(3) == startClip.name.substr(3) && target != startClip && startClip.hitTestPoint(this.mouseX, this.mouseY,true))
 				{
 
 					trace("if "+i);
@@ -217,8 +221,7 @@ package com.bbc_icontent.screens
 					line.graphics.clear();
 					line.graphics.moveTo(startPoint.x,startPoint.y );
 					//line.graphics.lineStyle(8,0x930000);
-					line.graphics.lineStyle(8,getColor().color);
-					
+					line.graphics.lineStyle(8,getColor().color);					
 					
 					// this is the line I was fogetting before;
 					line.graphics.lineTo(endPoint.x,endPoint.y);
