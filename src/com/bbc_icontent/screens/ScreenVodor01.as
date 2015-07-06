@@ -55,6 +55,7 @@ package com.bbc_icontent.screens
 		public function ScreenVodor01()
 		{
 			super();
+			scoreMax=4;
 			
 			var background:Bitmap = Assets.getBackground(Assets.IMG_forestSnake2);
 			addChild(background);
@@ -211,46 +212,48 @@ package com.bbc_icontent.screens
 				var target:Sprite = matchables[i] as Sprite;
 				trace("target===: "+target+ target.name +"<>"+startClip.name );
 				
-					trace(line!=null );
-				if (line!=null && target!=null && startClip!=null && target.name.substr(3) == startClip.name.substr(3) && target != startClip && startClip.hitTestPoint(this.mouseX, this.mouseY,true))
+				trace(line!=null );
+				if (line!=null && target!=null && startClip!=null )
 				{
-
-					trace("if "+i);
-					endPoint = new Point(matchables[i].x,matchables[i].y);
-					
-					line.graphics.clear();
-					line.graphics.moveTo(startPoint.x,startPoint.y );
-					//line.graphics.lineStyle(8,0x930000);
-					line.graphics.lineStyle(8,getColor().color);					
-					
-					// this is the line I was fogetting before;
-					line.graphics.lineTo(endPoint.x,endPoint.y);
-					
-					endClip = matchables[i];
-					endClip.alpha = 0.75;
-					startClip.alpha = .75;
-					
-					line.startClip = startClip;
-					line.endClip = endClip;
-					trace('LINE HIT WITH --------------------------------------- TARGET'+startClip.name+'<>'+endClip.name);
-					
-					matchables.splice(matchables.indexOf(startClip),1);
-					matchables.splice(matchables.indexOf(endClip),1);
-					
-					matchDone.push(startClip,endClip);
-					
-					
-					
-					isReleasedonTarget = true;
-					line = null;
-					
-					if (lines.length == dataArr.length)
-					{
-						resultCheck();
+					if(  target != startClip  && target.hitTestPoint(this.mouseX, this.mouseY,true) ){
+						
+						trace("if "+i);
+						endPoint = new Point(matchables[i].x,matchables[i].y);
+						
+						line.graphics.clear();
+						line.graphics.moveTo(startPoint.x,startPoint.y );
+						//line.graphics.lineStyle(8,0x930000);
+						line.graphics.lineStyle(8,getColor().color);					
+						
+						// this is the line I was fogetting before;
+						line.graphics.lineTo(endPoint.x,endPoint.y);
+						
+						endClip = matchables[i];
+						endClip.alpha = 0.75;
+						startClip.alpha = .75;
+						
+						line.startClip = startClip;
+						line.endClip = endClip;
+						trace('LINE HIT WITH --------------------------------------- TARGET'+startClip.name+'<>'+endClip.name);
+						
+						matchables.splice(matchables.indexOf(startClip),1);
+						matchables.splice(matchables.indexOf(endClip),1);
+						
+						matchDone.push(startClip,endClip);
+						
+						
+						
+						isReleasedonTarget = true;
+						line = null;
+						
+						if (lines.length == dataArr.length)
+						{
+							resultCheck();
+						}
+						
+						break;
+						
 					}
-					
-					break;
-					
 					
 				}
 				else
@@ -284,21 +287,14 @@ package com.bbc_icontent.screens
 		private function resultCheck():void
 		{
 			
-			
 			var totalMatchFound:int = 0;
 			for (var j:int=0; j<lines.length; j++)
 			{
 				var cntr:Connector = lines[j] as Connector;
 				var retivedSentace:String = cntr.startClip.name + separetor + cntr.endClip.name;
 				
-				for (var k:int=0; k<dataArr.length; k++)
-				{
-					if (retivedSentace==dataArr[k])
-					{
-						
-						totalMatchFound++;
-						break;
-					}
+				if(cntr.startClip.name.substr(3) == cntr.endClip.name.substr(3)){
+					totalMatchFound++;
 				}
 				
 			}
@@ -321,6 +317,8 @@ package com.bbc_icontent.screens
 				
 				showResult(true);
 			}
+			
+			trace("total match found: "+totalMatchFound)
 		}
 		
 		
@@ -361,7 +359,7 @@ package com.bbc_icontent.screens
 		private function getColor():ColorTransform
 		{
 			
-			var colorArray:Array = new Array(0xFFFF33,0xFF50FF,0x79DCF4,0xFF3333,0xFFCC33,0x99CC33);
+			var colorArray:Array = new Array(0xFF50FF,0x79DCF4,0xFF3333,0xFFCC33,0x99CC33);
 			var randomColorID:Number = Math.floor(Math.random() * colorArray.length);
 			
 			var myColor:ColorTransform = new ColorTransform();
