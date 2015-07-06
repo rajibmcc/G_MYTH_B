@@ -2,6 +2,11 @@
 bin/
 bin-debug/
 bin-release/
+assets/
+docs/
+certificates/
+html-template/
+swcs/
 
 # Other files and folders
 .settings/
