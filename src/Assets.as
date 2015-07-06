@@ -64,6 +64,8 @@ package
 		public static var IMG_forest_monkey:Class;
 		[Embed(source="../assets/images/forest_monkey_far.png")]
 		public static var IMG_forest_monkey_far:Class;
+		[Embed(source="../assets/images/forest_bird.png")]
+		public static var IMG_forest_bird:Class;
 		
 		
 		
