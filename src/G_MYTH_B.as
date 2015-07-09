@@ -43,7 +43,7 @@ package
 			ScoreGame.initializeScore();
 			
 			_levels = new Vector.<Class>();
-			_levels.push(LevelVodor, LevelSnake, LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
+			_levels.push(LevelSnake, LevelVodor,  LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
 			_currentIdLevel = -1;
 			homeScreen = new ScreenHome();
 			addChild(homeScreen);
