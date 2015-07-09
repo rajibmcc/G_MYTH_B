@@ -1,19 +1,24 @@
 package com.mcc.animation
 {
-	import flash.display.DisplayObject;
+	import com.greensock.TweenLite;
 	
-	import fl.transitions.Tween;
-	import fl.transitions.easing.Strong;
+	import flash.display.DisplayObject;
 
 	public class TransitionHelper
 	{
-		public static function fadeIn(target:DisplayObject, duration:Number = .8):void
+		public static function fadeIn(target:DisplayObject, duration:Number = .8, visibility = false):void
 		{
-			new Tween(target,"alpha", Strong.easeIn, 0, 1, duration, true);
+			TweenLite.fromTo(target, duration,{alpha:0},{alpha:1});//, onComplete:setVisibility, onCompleteParams:[visibility]});
+/*			
+			function setVisibility(visibility:Boolean):void{
+				target.visible = false;
+				trace('Visibility changed after transition : '+target.visible);
+			}*/
 		}
 		
 		public static function fadeOut(target:DisplayObject, duration:Number = .8):void{
-			new Tween(target,"alpha", Strong.easeIn, 1, 0, duration, true);
+			target.visible = true;
+			TweenLite.fromTo(target, duration, {alpha:1},{alpha:0});
 		}
 	}
 }
