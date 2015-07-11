@@ -5,6 +5,7 @@ package
 	import com.bbc_icontent.Level;
 	import com.bbc_icontent.ScoreGame;
 	import com.bbc_icontent.events.LevelEvents;
+	import com.bbc_icontent.levels.LevelBird;
 	import com.bbc_icontent.levels.LevelDeer;
 	import com.bbc_icontent.levels.LevelElephant;
 	import com.bbc_icontent.levels.LevelMonkey;
@@ -14,6 +15,7 @@ package
 	import com.bbc_icontent.screens.InfoCallCenter;
 	import com.bbc_icontent.screens.ScreenHome;
 	import com.bbc_icontent.screens.ScreenTheEnd;
+	import com.mcc.interactives.SoundEngine;
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -41,9 +43,13 @@ package
 			
 			InfoGame.initializeInfo();
 			ScoreGame.initializeScore();
-			
+
 			_levels = new Vector.<Class>();
+<<<<<<< HEAD
 			_levels.push(LevelSnake, LevelVodor,  LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
+=======
+			_levels.push(LevelBird, LevelVodor, LevelSnake, LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
+>>>>>>> rajibmcc/master
 			_currentIdLevel = -1;
 			homeScreen = new ScreenHome();
 			addChild(homeScreen);
