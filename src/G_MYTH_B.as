@@ -45,11 +45,9 @@ package
 			ScoreGame.initializeScore();
 
 			_levels = new Vector.<Class>();
-<<<<<<< HEAD
+
 			_levels.push(LevelSnake, LevelVodor,  LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
-=======
-			_levels.push(LevelBird, LevelVodor, LevelSnake, LevelElephant, LevelTiger, LevelDeer, LevelMonkey);
->>>>>>> rajibmcc/master
+
 			_currentIdLevel = -1;
 			homeScreen = new ScreenHome();
 			addChild(homeScreen);
