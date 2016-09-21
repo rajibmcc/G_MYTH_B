@@ -13,7 +13,7 @@ package com.bbc_icontent.levels
 		{
 			super();
 			
-			_checkPoints.push(ScreenSnake01, ScreenSnake02, ScreenSnake03, ScreenSnake04);
+			_checkPoints.push(ScreenSnake04, ScreenSnake01, ScreenSnake02, ScreenSnake03, ScreenSnake04);
 			_levelId = InfoGame.LEVEL_SNAKE;
 		}
 	}

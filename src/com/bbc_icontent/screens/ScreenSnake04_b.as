@@ -153,9 +153,9 @@ package com.bbc_icontent.screens
 		
 		private function addMatchingListener():void
 		{
+			
 			stage.addEventListener(MouseEvent.MOUSE_DOWN,mouseDownHandler);
 			stage.addEventListener(MouseEvent.MOUSE_UP,mouseUpHandler);
-			
 		}
 		
 		private function removeMatchingListener():void
@@ -176,7 +176,7 @@ package com.bbc_icontent.screens
 				var target:MovieClip = matchables[i] as MovieClip;
 				if (target.hitTestPoint(mouseX,mouseY,true))
 				{
-					trace("target================================================="+target.name);
+					
 					
 					startPoint = new Point(matchables[i].x,matchables[i].y);
 					activeDrawLine = true;
@@ -237,7 +237,6 @@ package com.bbc_icontent.screens
 				//trace("for "+ i);
 				
 				var target:MovieClip = matchables[i] as MovieClip;
-				trace("destination================================================="+target.name);
 				//trace("target: "+target);
 				if (line!=null && target!=null && startClip!=null && target.name.substr(4) != startClip.name.substr(4) && target != startClip && target.hitTestPoint(mouseX,mouseY,true))
 				{
